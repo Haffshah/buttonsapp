@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class DropMenu extends StatefulWidget {
   const DropMenu({Key? key}) : super(key: key);
@@ -9,12 +10,18 @@ class DropMenu extends StatefulWidget {
 }
 
 class _DropMenuState extends State<DropMenu> {
-  String dropdownValue = 'Low';
+  var _itemList = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  var currentSelected = 'Item 1';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Custom Dropdown Menu'),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text('Custom Dropdown Menu', style: TextStyle(color: Color(
+            0xff171616)),),
       ),
       body: Column(
         children: [
@@ -22,31 +29,35 @@ class _DropMenuState extends State<DropMenu> {
             padding: const EdgeInsets.all(8.0),
             child: Text('Normal Use of Menu Button'),
           ),
-          DropdownButton<String>(
-            value: dropdownValue,
-            icon: const Icon(Icons.arrow_drop_down),
-            iconSize: 24,
-            elevation: 16,
-            style: const TextStyle(color: Colors.deepPurple),
-            underline: Container(
-              height: 2,
-              color: Colors.deepPurpleAccent,
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: DropdownButton<String>(
+              isExpanded: true,
+
+              items: _itemList.map(
+                (String dropDownStingItem) {
+                  return DropdownMenuItem(
+                    child: Text(dropDownStingItem),
+                    value: dropDownStingItem,
+                  );
+                },
+              ).toList(),
+              onChanged: (newValueSelected) {
+
+                dropDownItemSelected(newValueSelected!);
+
+              },
+              value: currentSelected,
             ),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownValue = newValue!;
-              });
-            },
-            items: <String>['Low', 'Medium', 'High']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
           ),
         ],
       ),
     );
+  }
+
+  void dropDownItemSelected( newValueSelected){
+    setState(() {
+      this.currentSelected = newValueSelected!;
+    });
   }
 }
