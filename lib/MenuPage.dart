@@ -9,7 +9,8 @@ class DropMenu extends StatefulWidget {
 }
 
 class _DropMenuState extends State<DropMenu> {
-  bool isStrechedDropDown = false;
+  var _itemList = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  var currentSelected = 'Item 1';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,73 +24,40 @@ class _DropMenuState extends State<DropMenu> {
             style: TextStyle(color: Color(0xff171616)),
           ),
         ),
-        body: SafeArea(
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        // height: 50.0,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.brown, width: 2),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey, width: 1),
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              constraints: BoxConstraints(
-                                minHeight: 45.0,
-                                minWidth: double.infinity
-                              ),
-                              child:  Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 10),
-                                      child: Text(
-                                        "Title",
-                                        style: TextStyle(fontSize: 18.0),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8.0),
-                                    child: GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            isStrechedDropDown =
-                                            !isStrechedDropDown;
-                                          });
-                                        },
-                                        child: Icon(isStrechedDropDown
-                                            ? Icons.arrow_drop_up_rounded
-                                            : Icons.arrow_drop_down_rounded)),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ));
+        body:Column(
+          children: [
+    Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Text('Normal Use of Menu Button', style: TextStyle(fontSize: 15.0),),
+    ),
+    Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 10.0),
+    child: DropdownButton<String>(
+    isExpanded: true,
+
+    items: _itemList.map(
+    (String dropDownStingItem) {
+    return DropdownMenuItem(
+    child: Text(dropDownStingItem),
+    value: dropDownStingItem,
+    );
+    },
+    ).toList(),
+    onChanged: (newValueSelected) {
+
+    dropDownItemSelected(newValueSelected!);
+
+    },
+    value: currentSelected,
+    ),
+    ),
+    ],
+    ),);
   }
+
+void dropDownItemSelected( newValueSelected){
+  setState(() {
+    this.currentSelected = newValueSelected!;
+  });
+}
 }
