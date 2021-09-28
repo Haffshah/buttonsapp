@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class DropMenu extends StatefulWidget {
   const DropMenu({Key? key}) : super(key: key);
@@ -10,54 +9,87 @@ class DropMenu extends StatefulWidget {
 }
 
 class _DropMenuState extends State<DropMenu> {
-  var _itemList = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
-  var currentSelected = 'Item 1';
+  bool isStrechedDropDown = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text('Custom Dropdown Menu', style: TextStyle(color: Color(
-            0xff171616)),),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Normal Use of Menu Button'),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            'Custom Dropdown Menu',
+            style: TextStyle(color: Color(0xff171616)),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: DropdownButton<String>(
-              isExpanded: true,
-
-              items: _itemList.map(
-                (String dropDownStingItem) {
-                  return DropdownMenuItem(
-                    child: Text(dropDownStingItem),
-                    value: dropDownStingItem,
-                  );
-                },
-              ).toList(),
-              onChanged: (newValueSelected) {
-
-                dropDownItemSelected(newValueSelected!);
-
-              },
-              value: currentSelected,
+        ),
+        body: SafeArea(
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        // height: 50.0,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.brown, width: 2),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey, width: 1),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              constraints: BoxConstraints(
+                                minHeight: 45.0,
+                                minWidth: double.infinity
+                              ),
+                              child:  Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 10),
+                                      child: Text(
+                                        "Title",
+                                        style: TextStyle(fontSize: 18.0),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 8.0),
+                                    child: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isStrechedDropDown =
+                                            !isStrechedDropDown;
+                                          });
+                                        },
+                                        child: Icon(isStrechedDropDown
+                                            ? Icons.arrow_drop_up_rounded
+                                            : Icons.arrow_drop_down_rounded)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  void dropDownItemSelected( newValueSelected){
-    setState(() {
-      this.currentSelected = newValueSelected!;
-    });
+        ));
   }
 }

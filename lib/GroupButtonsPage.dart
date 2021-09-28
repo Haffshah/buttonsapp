@@ -33,6 +33,29 @@ class _GroupButtonsState extends State<GroupButtons> {
 
   bool selected = false;
 
+  Widget customCheckbutton(String text, dynamic value){
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+          backgroundColor:
+          (value) ? Colors.red : Colors.white,
+          side: BorderSide(color: Colors.red, width: 1.0),
+          fixedSize: Size(200.0, 40.0)),
+      onPressed: () {
+        setState(
+              () {
+                value = !value;
+          },
+        );
+      },
+      child: Text(
+        text,
+        style: TextStyle(
+          color:
+          value ? Colors.white : Colors.black,
+        ),
+      ),
+    );
+  }
   Widget customRadio(int index) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
@@ -90,27 +113,7 @@ class _GroupButtonsState extends State<GroupButtons> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            backgroundColor:
-                                _hasBeenPressed ? Colors.red : Colors.white,
-                            side: BorderSide(color: Colors.red, width: 1.0),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed = !_hasBeenPressed;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Monday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
+                      child: customCheckbutton('Monday', _hasBeenPressed)
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -600,7 +603,7 @@ class _GroupButtonsState extends State<GroupButtons> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25)),
                         backgroundColor:
-                            _hasBeenPressed18 ? Colors.red : Colors.white,
+                            _hasBeenPressed19 ? Colors.red : Colors.white,
                         side: BorderSide(color: Colors.red, width: 1.0),
                         fixedSize: Size(120.0, 40.0)),
                     onPressed: () {

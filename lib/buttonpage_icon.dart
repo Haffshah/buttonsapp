@@ -9,13 +9,29 @@ class ButtonsPage extends StatefulWidget {
 }
 
 class _ButtonsPageState extends State<ButtonsPage> {
-  bool _hasBeenPressed = false;
-  bool _hasBeenPressed1= false;
-  bool _hasBeenPressed2 = false;
-  bool _hasBeenPressed3 = false;
-  bool _hasBeenPressed4 = false;
-
-
+ 
+  int selected = 0;
+  Widget customRadioButtons(int index, String text, IconData icon ) {
+    return   ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: (selected == index) ? Colors.cyan : Colors.redAccent,
+      ),
+      onPressed: () => {
+        setState(() {
+          selected = index;
+        })
+      },
+      child: Row(
+        children: [
+          Icon(icon),
+          SizedBox(
+            width: 10.0,
+          ),
+          Text(text),
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,107 +46,23 @@ class _ButtonsPageState extends State<ButtonsPage> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: _hasBeenPressed ? Colors.cyan : Colors.redAccent,
-                ),
-                onPressed: () => {
-                  setState(() {
-                    _hasBeenPressed = !_hasBeenPressed;
-                  })
-                },
-                child: Row(
-                  children: [
-                    Icon(Icons.directions_car),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('Car'),
-                  ],
-                ),
-              ),
+              customRadioButtons(1,'car', Icons.directions_car),
               SizedBox(
                 width: 10.0,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: _hasBeenPressed2 ? Colors.cyan : Colors.redAccent,
-                ),
-                onPressed: () {setState(() {
-                  _hasBeenPressed2 = !_hasBeenPressed2;
-                },);},
-                child: Row(
-                  children: [
-                    Icon(Icons.directions_car_outlined),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('Taxi'),
-                  ],
-                ),
+              customRadioButtons(2,'Taxi', Icons.directions_car_outlined), SizedBox(
+                width: 10.0,
               ),
+              customRadioButtons(3,'Tractor', Icons.agriculture),
               SizedBox(
                 width: 10.0,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: _hasBeenPressed3 ? Colors.cyan : Colors.redAccent,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _hasBeenPressed3 = !_hasBeenPressed3;
-                  },);
-                },
-                child: Row(
-                  children: [
-                    Icon(Icons.agriculture),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('Tractor'),
-                  ],
-                ),
-              ),
+              customRadioButtons(4,'Bus', Icons.directions_bus_sharp),
               SizedBox(
                 width: 10.0,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: _hasBeenPressed4 ? Colors.cyan : Colors.redAccent,
-                ),
-                onPressed: () {setState(() {
-                  _hasBeenPressed4 = !_hasBeenPressed4;
-                },);},
-                child: Row(
-                  children: [
-                    Icon(Icons.directions_bus_sharp),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('Bus'),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: _hasBeenPressed1 ? Colors.cyan : Colors.redAccent,
-                ),
-                onPressed: () {setState(() {
-                  _hasBeenPressed1= !_hasBeenPressed1;
-                },);},
-                child: Row(
-                  children: [
-                    Icon(Icons.motorcycle),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('Bike'),
-                  ],
-                ),
-              ),
+              customRadioButtons(5,'Cycle', Icons.motorcycle_outlined),
+
             ],
           ),
         ),
