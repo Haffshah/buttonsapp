@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fab_dialer/flutter_fab_dialer.dart' show FabDialer, FabMiniMenuItem;
+import "package:flutter_fab_dialer/flutter_fab_dialer.dart" show FabDialer, FabMiniMenuItem;
 
 class FloatingMenu extends StatefulWidget {
   const FloatingMenu({Key? key}) : super(key: key);
@@ -9,12 +9,10 @@ class FloatingMenu extends StatefulWidget {
 }
 
 class _FloatingMenuState extends State<FloatingMenu> {
-  int _counter = 0;
+  // int _counter = 0;
 
   void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+
   }
 
   @override

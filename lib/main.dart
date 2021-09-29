@@ -78,7 +78,7 @@ class _MainHomeState extends State<MainHome> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ButtonsPage(),
+                      builder: (context) => MyTabbar(),
                     ),
                   );
                 },
