@@ -84,30 +84,7 @@ class _DropMenuState extends State<DropMenu> {
           SizedBox(
             height: 20.0,
           ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 35.0, vertical: 10.0),
-            child: DropdownButtonFormField<String>(
 
-              dropdownColor: Color(0xffdababa),
-              isExpanded: true,
-              isDense: true,
-              autofocus: true,
-              items: _itemList.map(
-                (String dropDownStingItem) {
-                  return DropdownMenuItem(
-
-                    child: Text(dropDownStingItem),
-                    value: dropDownStingItem,
-                  );
-                },
-              ).toList(),
-              onChanged: (newValueSelected) {
-                dropDownItemSelected(newValueSelected!);
-              },
-              value: currentSelected,
-            ),
-          ),
         ],
       ),
     );

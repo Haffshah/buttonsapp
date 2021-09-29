@@ -2,6 +2,7 @@ import 'package:buttonsapp/FloatingActionMenu.dart';
 import 'package:buttonsapp/GroupButtonsPage.dart';
 import 'package:buttonsapp/GroupRadioButtons.dart';
 import 'package:buttonsapp/MenuPage.dart';
+import 'package:buttonsapp/ReactionPage.dart';
 import 'package:flutter/material.dart';
 import 'buttonpage_icon.dart';
 
@@ -151,7 +152,27 @@ class _MainHomeState extends State<MainHome> {
             SizedBox(
               height: 15.0,
             ),
-
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary:Color(0xffB88746),
+                fixedSize: Size(280, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ReactionButtonPage(),
+                  ),
+                );
+              },
+              child: Text("Reaction Button Example"),
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
           ],
         ),
       ),
