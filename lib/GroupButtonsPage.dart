@@ -8,61 +8,14 @@ class GroupButtons extends StatefulWidget {
 }
 
 class _GroupButtonsState extends State<GroupButtons> {
-  bool _hasBeenPressed = false;
-  bool _hasBeenPressed1 = false;
-  bool _hasBeenPressed2 = false;
-  bool _hasBeenPressed3 = false;
-  bool _hasBeenPressed4 = false;
-  bool _hasBeenPressed5 = false;
-  bool _hasBeenPressed6 = false;
-  bool _hasBeenPressed7 = false;
-  bool _hasBeenPressed8 = false;
-  bool _hasBeenPressed9 = false;
-  bool _hasBeenPressed10 = false;
-  bool _hasBeenPressed11 = false;
-  bool _hasBeenPressed12 = false;
-  bool _hasBeenPressed13 = false;
-  bool _hasBeenPressed14 = false;
-  bool _hasBeenPressed15 = false;
-  bool _hasBeenPressed16 = false;
-  bool _hasBeenPressed17 = false;
-  bool _hasBeenPressed18 = false;
-  bool _hasBeenPressed19 = false;
-  bool _hasBeenPressed20 = false;
-  bool _hasBeenPressed21 = false;
-
   bool selected = false;
 
-  Widget customCheckbutton(String text, dynamic value){
-    return OutlinedButton(
-      style: OutlinedButton.styleFrom(
-          backgroundColor:
-          (value) ? Colors.red : Colors.white,
-          side: BorderSide(color: Colors.red, width: 1.0),
-          fixedSize: Size(200.0, 40.0)),
-      onPressed: () {
-        setState(
-              () {
-                value = !value;
-          },
-        );
-      },
-      child: Text(
-        text,
-        style: TextStyle(
-          color:
-          value ? Colors.white : Colors.black,
-        ),
-      ),
-    );
-  }
   Widget customRadio(int index) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
           backgroundColor: selected ? Color(0xff3c299a) : Color(0xff8AAAE5),
-
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           fixedSize: Size(150.0, 50.0)),
       onPressed: () {
         setState(() {
@@ -71,8 +24,13 @@ class _GroupButtonsState extends State<GroupButtons> {
       },
       child: Row(
         children: [
-          Icon(Icons.radio_button_checked, color: Colors.white,),
-          SizedBox(width: 10.0,),
+          Icon(
+            Icons.radio_button_checked,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 10.0,
+          ),
           Text(
             'Radio Button',
             style: TextStyle(
@@ -97,7 +55,7 @@ class _GroupButtonsState extends State<GroupButtons> {
             height: 10.0,
           ),
           Text(
-            'Horizontal',
+            'Horizontal',style: TextStyle(fontSize: 20.0),
           ),
           SizedBox(
             height: 15.0,
@@ -113,79 +71,19 @@ class _GroupButtonsState extends State<GroupButtons> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: customCheckbutton('Monday', _hasBeenPressed)
+                      child: CustomCheckbox(text: 'Monday', selected: false),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            backgroundColor:
-                                _hasBeenPressed1 ? Colors.red : Colors.white,
-                            side: BorderSide(color: Colors.red, width: 1.0),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed1 = !_hasBeenPressed1;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Tuesday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed1 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
+                      child: CustomCheckbox(text: 'Tuesday', selected: true),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            backgroundColor:
-                                _hasBeenPressed2 ? Colors.red : Colors.white,
-                            side: BorderSide(color: Colors.red, width: 1.0),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed2 = !_hasBeenPressed2;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Wednesday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed2 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
+                      child: CustomCheckbox(text: 'Wednesday', selected: false),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            backgroundColor:
-                                _hasBeenPressed3 ? Colors.red : Colors.white,
-                            side: BorderSide(color: Colors.red, width: 1.0),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed3 = !_hasBeenPressed3;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Thursday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed3 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
+                      child: CustomCheckbox(text: 'Thursday', selected: true),
                     ),
                   ],
                 ),
@@ -198,112 +96,29 @@ class _GroupButtonsState extends State<GroupButtons> {
                       'Shape Enabled',
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            backgroundColor:
-                                _hasBeenPressed4 ? Colors.red : Colors.white,
-                            side: BorderSide(
-                              color: Colors.red,
-                              width: 1.0,
-                            ),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed4 = !_hasBeenPressed4;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Monday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed4 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(5.0),
+                        child: RoundedCheckbutton(
+                          text: 'Monday',
+                          selected: true,
+                        )),
                     Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            backgroundColor:
-                                _hasBeenPressed5 ? Colors.red : Colors.white,
-                            side: BorderSide(color: Colors.red, width: 1.0),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed5 = !_hasBeenPressed5;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Tuesday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed5 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(5.0),
+                        child: RoundedCheckbutton(
+                          text: 'Tuesday',
+                          selected: false,
+                        )),
                     Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            backgroundColor:
-                                _hasBeenPressed6 ? Colors.red : Colors.white,
-                            side: BorderSide(color: Colors.red, width: 1.0),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed6 = !_hasBeenPressed6;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Wednesday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed6 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(5.0),
+                        child: RoundedCheckbutton(
+                          text: 'Wednesday',
+                          selected: true,
+                        )),
                     Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            backgroundColor:
-                                _hasBeenPressed7 ? Colors.red : Colors.white,
-                            side: BorderSide(color: Colors.red, width: 1.0),
-                            fixedSize: Size(200.0, 40.0)),
-                        onPressed: () {
-                          setState(
-                            () {
-                              _hasBeenPressed7 = !_hasBeenPressed7;
-                            },
-                          );
-                        },
-                        child: Text(
-                          'Thursday',
-                          style: TextStyle(
-                            color:
-                                _hasBeenPressed7 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(5.0),
+                        child: RoundedCheckbutton(
+                          text: 'Thursday',
+                          selected: false,
+                        )),
                   ],
                 ),
               ),
@@ -311,6 +126,10 @@ class _GroupButtonsState extends State<GroupButtons> {
           ),
           SizedBox(
             height: 15.0,
+          ),   Text(
+            'Vertical',style: TextStyle(fontSize: 20.0),
+          ), SizedBox(
+            height: 10.0,
           ),
           Text(
             'Shape Disabled',
@@ -320,166 +139,47 @@ class _GroupButtonsState extends State<GroupButtons> {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed8 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed8 = !_hasBeenPressed8;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Monday',
-                      style: TextStyle(
-                        color: _hasBeenPressed8 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: CheckboxShort(
+                      text: 'Monday',
+                      selected: false,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed9 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed9 = !_hasBeenPressed9;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Tuesday',
-                      style: TextStyle(
-                        color: _hasBeenPressed9 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: CheckboxShort(
+                      text: 'Tuesday',
+                      selected: true,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed10 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed10 = !_hasBeenPressed10;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Wednesday',
-                      style: TextStyle(
-                        color: _hasBeenPressed10 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: CheckboxShort(
+                      text: 'Wednesday',
+                      selected: false,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed11 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed11 = !_hasBeenPressed11;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Thursday',
-                      style: TextStyle(
-                        color: _hasBeenPressed11 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: CheckboxShort(
+                      text: 'Thursday',
+                      selected: true,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed12 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed12 = !_hasBeenPressed12;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Friday',
-                      style: TextStyle(
-                        color: _hasBeenPressed12 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: CheckboxShort(
+                      text: 'Friday',
+                      selected: false,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed13 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed13 = !_hasBeenPressed13;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Saturday',
-                      style: TextStyle(
-                        color: _hasBeenPressed13 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: CheckboxShort(
+                      text: 'Saturday',
+                      selected: true,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed14 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed14 = !_hasBeenPressed14;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Sunday',
-                      style: TextStyle(
-                        color: _hasBeenPressed14 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: CheckboxShort(
+                      text: 'Sunday',
+                      selected: false,
+                    )),
               ],
             ),
           ),
@@ -494,183 +194,47 @@ class _GroupButtonsState extends State<GroupButtons> {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            _hasBeenPressed15 ? Colors.red : Colors.white,
-                        side: BorderSide(
-                          color: Colors.red,
-                          width: 1.0,
-                        ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed15 = !_hasBeenPressed15;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Monday',
-                      style: TextStyle(
-                        color: _hasBeenPressed15 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: RoundedCheckShort(
+                      text: 'Monday',
+                      selected: true,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        backgroundColor:
-                            _hasBeenPressed16 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed16 = !_hasBeenPressed16;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Tuesday',
-                      style: TextStyle(
-                        color: _hasBeenPressed16 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: RoundedCheckShort(
+                      text: 'Tuesday',
+                      selected: false,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        backgroundColor:
-                            _hasBeenPressed17 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed17 = !_hasBeenPressed17;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Wednesday',
-                      style: TextStyle(
-                        color: _hasBeenPressed17 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: RoundedCheckShort(
+                      text: 'Wednesday',
+                      selected: true,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        backgroundColor:
-                            _hasBeenPressed18 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed18 = !_hasBeenPressed18;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Thursday',
-                      style: TextStyle(
-                        color: _hasBeenPressed18 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: RoundedCheckShort(
+                      text: 'Thursday',
+                      selected: false,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        backgroundColor:
-                            _hasBeenPressed19 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed19 = !_hasBeenPressed19;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Friday',
-                      style: TextStyle(
-                        color: _hasBeenPressed19 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: RoundedCheckShort(
+                      text: 'Friday',
+                      selected: true,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        backgroundColor:
-                            _hasBeenPressed20 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed20 = !_hasBeenPressed20;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Saturday',
-                      style: TextStyle(
-                        color: _hasBeenPressed20 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: RoundedCheckShort(
+                      text: 'Saturday',
+                      selected: false,
+                    )),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        backgroundColor:
-                            _hasBeenPressed21 ? Colors.red : Colors.white,
-                        side: BorderSide(color: Colors.red, width: 1.0),
-                        fixedSize: Size(120.0, 40.0)),
-                    onPressed: () {
-                      setState(
-                        () {
-                          _hasBeenPressed21 = !_hasBeenPressed21;
-                        },
-                      );
-                    },
-                    child: Text(
-                      'Sunday',
-                      style: TextStyle(
-                        color: _hasBeenPressed21 ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(5.0),
+                    child: RoundedCheckShort(
+                      text: 'Sunday',
+                      selected: true,
+                    )),
               ],
             ),
           ),
@@ -686,6 +250,160 @@ class _GroupButtonsState extends State<GroupButtons> {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class CustomCheckbox extends StatefulWidget {
+  final String text;
+  final bool selected;
+  CustomCheckbox({
+    required this.text,
+    required this.selected,
+  });
+
+  @override
+  _CustomCheckboxState createState() => _CustomCheckboxState();
+}
+
+class _CustomCheckboxState extends State<CustomCheckbox> {
+  late bool _isSelected = widget.selected;
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+          backgroundColor: (_isSelected) ? Colors.red : Colors.white,
+          side: BorderSide(color: Colors.red, width: 1.0),
+          fixedSize: Size(200.0, 40.0)),
+      onPressed: () {
+        setState(
+          () {
+            _isSelected = !_isSelected;
+          },
+        );
+      },
+      child: Text(
+        widget.text,
+        style: TextStyle(
+          color: _isSelected ? Colors.white : Colors.black,
+        ),
+      ),
+    );
+  }
+}
+
+class RoundedCheckbutton extends StatefulWidget {
+  final String text;
+  final bool selected;
+  RoundedCheckbutton({
+    required this.text,
+    required this.selected,
+  });
+  @override
+  _RoundedCheckbuttonState createState() => _RoundedCheckbuttonState();
+}
+
+class _RoundedCheckbuttonState extends State<RoundedCheckbutton> {
+  late bool _isSelected = widget.selected;
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          backgroundColor: _isSelected ? Colors.red : Colors.white,
+          side: BorderSide(color: Colors.red, width: 1.0),
+          fixedSize: Size(200.0, 40.0)),
+      onPressed: () {
+        setState(
+          () {
+            _isSelected = !_isSelected;
+          },
+        );
+      },
+      child: Text(
+        widget.text,
+        style: TextStyle(
+          color: _isSelected ? Colors.white : Colors.black,
+        ),
+      ),
+    );
+  }
+}
+
+class CheckboxShort extends StatefulWidget {
+  final String text;
+  final bool selected;
+  CheckboxShort({
+    required this.text,
+    required this.selected,
+  });
+  @override
+  _CheckboxShortState createState() => _CheckboxShortState();
+}
+
+class _CheckboxShortState extends State<CheckboxShort> {
+  late bool _isSelected = widget.selected;
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+          backgroundColor: _isSelected ? Colors.red : Colors.white,
+          side: BorderSide(color: Colors.red, width: 1.0),
+          fixedSize: Size(120.0, 40.0)),
+      onPressed: () {
+        setState(
+          () {
+            _isSelected = !_isSelected;
+          },
+        );
+      },
+      child: Text(
+        widget.text,
+        style: TextStyle(
+          color: _isSelected ? Colors.white : Colors.black,
+        ),
+      ),
+    );
+  }
+}
+
+class RoundedCheckShort extends StatefulWidget {
+  final String text;
+  final bool selected;
+  RoundedCheckShort({
+    required this.text,
+    required this.selected,
+  });
+
+  @override
+  _RoundedCheckShortState createState() => _RoundedCheckShortState();
+}
+
+class _RoundedCheckShortState extends State<RoundedCheckShort> {
+  late bool _isSelected = widget.selected;
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          backgroundColor: _isSelected ? Colors.red : Colors.white,
+          side: BorderSide(color: Colors.red, width: 1.0),
+          fixedSize: Size(120.0, 40.0)),
+      onPressed: () {
+        setState(
+          () {
+            _isSelected = !_isSelected;
+          },
+        );
+      },
+      child: Text(
+        widget.text,
+        style: TextStyle(
+          color: _isSelected ? Colors.white : Colors.black,
+        ),
       ),
     );
   }

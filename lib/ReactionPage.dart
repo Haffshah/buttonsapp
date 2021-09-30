@@ -8,8 +8,6 @@ class ReactionButtonPage extends StatefulWidget {
 }
 
 class _ReactionButtonPageState extends State<ReactionButtonPage> {
-
-
   Widget customCard(String imageLink) {
     return Card(
       shape: RoundedRectangleBorder(
@@ -22,7 +20,7 @@ class _ReactionButtonPageState extends State<ReactionButtonPage> {
       shadowColor: Color(0xff98a0e7),
       child: Column(
         children: [
-          Image.network(imageLink),
+          Image.asset(imageLink),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Row(
@@ -88,10 +86,10 @@ class _ReactionButtonPageState extends State<ReactionButtonPage> {
           InkWell(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Image.network(
-                'https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3303/18825/india-flag__43506.1575353601.jpg?c=2',
+              child: Container(
                 height: 45.0,
                 width: 45.0,
+                child: Image.asset('images/indiaflag.jpg'),
               ),
             ),
             onTap: () {
@@ -109,27 +107,21 @@ class _ReactionButtonPageState extends State<ReactionButtonPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            Image.network(
-                              'https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3303/18825/india-flag__43506.1575353601.jpg?c=2',
+                            Image.asset(
+                              'images/indiaflag.jpg',
                               height: 40.0,
                               width: 40.0,
                             ),
-                            Image.network(
-                                'https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg',
+                            Image.asset(
+                                'images/flag-Stars-and-Stripes-May-1-1795.jpg',
                                 height: 40.0,
                                 width: 40.0),
-                            Image.network(
-                                'https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3332/18818/italy-flag__19720.1575335174.jpg?c=2',
-                                height: 40.0,
-                                width: 40.0),
-                            Image.network(
-                                'https://www.worldatlas.com/img/flag/ca-flag.jpg',
-                                height: 40.0,
-                                width: 40.0),
-                            Image.network(
-                                'https://www.ibu.edu.ba/wp-content/uploads/2021/07/1200px-Flag_of_the_United_Kingdom.svg.png',
-                                height: 40.0,
-                                width: 40.0),
+                            Image.asset('images/canada.jpg',
+                                height: 40.0, width: 40.0),
+                            Image.asset('images/iran.jpg',
+                                height: 40.0, width: 40.0),
+                            Image.asset('images/uk.png',
+                                height: 40.0, width: 40.0),
                           ],
                         ),
                       ),
@@ -142,12 +134,14 @@ class _ReactionButtonPageState extends State<ReactionButtonPage> {
       body: ListView(
         children: [
           customCard(
-            'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg',
-          ), customCard(
-              'https://c4.wallpaperflare.com/wallpaper/764/505/66/baby-groot-4k-hd-superheroes-wallpaper-preview.jpg'),
-          customCard('https://www.iamabiker.com/wp-content/uploads/2021/01/Honda-Highness-CB350-HD-wallpaper-2.jpg'),
+            'images/1.jpg',
+          ),
           customCard(
-              'https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg'),
+              'images/2.jpg'),
+          customCard(
+              'images/3.jpg'),
+          customCard(
+              'images/4.jpg'),
         ],
       ),
     );
