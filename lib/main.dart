@@ -5,6 +5,7 @@ import 'package:buttonsapp/MenuPage.dart';
 import 'package:buttonsapp/ReactionPage.dart';
 import 'package:flutter/material.dart';
 import 'buttonpage_icon.dart';
+import 'floating.dart';
 
 void main() {
   runApp(MyApp());

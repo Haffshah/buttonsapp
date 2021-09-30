@@ -12,7 +12,6 @@ class _FloatingMenuState extends State<FloatingMenu>
   bool isOpened = false;
   late AnimationController _animationController;
   late Animation<Color> _buttonColor;
-
   late Animation<double> _translateButton;
   Curve _curve = Curves.decelerate;
   double _fabHeight = 49.0;
