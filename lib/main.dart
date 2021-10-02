@@ -30,15 +30,12 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff191919),
       appBar: AppBar(
-         backgroundColor: Color(0xffB88746),
+        backgroundColor: Color(0xffB88746),
         title: Text('All Screen Link'),
       ),
       body: Center(
@@ -46,16 +43,8 @@ class _MainHomeState extends State<MainHome> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Color(0xffB88746),
-                fixedSize: Size(280, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              onPressed: () {
+            ElevatedButtonWidget(
+              onclick: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -63,42 +52,27 @@ class _MainHomeState extends State<MainHome> {
                   ),
                 );
               },
-              child: Text("Fab Menu Screen"),
+              text: 'Fab Menu',
             ),
             SizedBox(
               height: 15.0,
             ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary:Color(0xffB88746),
-                  fixedSize: Size(280, 40),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
+            ElevatedButtonWidget(
+              onclick: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyTabbar(),
                   ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyTabbar(),
-                    ),
-                  );
-                },
-                child: Text('Buttons Page'),
-              ),
-
+                );
+              },
+              text: 'Tabbar Button Page',
+            ),
             SizedBox(
               height: 15.0,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary:Color(0xffB88746),
-                fixedSize: Size(280, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              onPressed: () {
+            ElevatedButtonWidget(
+              onclick: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -106,20 +80,13 @@ class _MainHomeState extends State<MainHome> {
                   ),
                 );
               },
-              child: Text("Group of buttons"),
+              text: 'Group Checked of buttons',
             ),
             SizedBox(
               height: 15.0,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary:Color(0xffB88746),
-                fixedSize: Size(280, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              onPressed: () {
+            ElevatedButtonWidget(
+              onclick: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -127,20 +94,13 @@ class _MainHomeState extends State<MainHome> {
                   ),
                 );
               },
-              child: Text("Group of Radio buttons"),
+              text: 'Group of Radio buttons',
             ),
             SizedBox(
               height: 15.0,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary:Color(0xffB88746),
-                fixedSize: Size(280, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              onPressed: () {
+            ElevatedButtonWidget(
+              onclick: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -148,20 +108,13 @@ class _MainHomeState extends State<MainHome> {
                   ),
                 );
               },
-              child: Text("Menu Button Example"),
+              text: 'Menu Button Example',
             ),
             SizedBox(
               height: 15.0,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary:Color(0xffB88746),
-                fixedSize: Size(280, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              onPressed: () {
+            ElevatedButtonWidget(
+              onclick: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -169,14 +122,55 @@ class _MainHomeState extends State<MainHome> {
                   ),
                 );
               },
-              child: Text("Reaction Button Example"),
+              text: 'Reaction Button Example',
             ),
             SizedBox(
               height: 15.0,
             ),
+            // ElevatedButtonWidget(
+            //   onclick: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => FloatingActionButtonDemo(),
+            //       ),
+            //     );
+            //   },
+            //   text: 'Reaction Button',
+            // ),
+            // SizedBox(
+            //   height: 15.0,
+            // ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ElevatedButtonWidget extends StatelessWidget {
+  final Function onclick;
+  final String text;
+  const ElevatedButtonWidget({
+    Key? key,
+    required this.onclick,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xffB88746),
+        fixedSize: Size(280, 40),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+      ),
+      onPressed: () {
+        onclick();
+      },
+      child: Text(text),
     );
   }
 }
