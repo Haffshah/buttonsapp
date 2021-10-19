@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
 
 class MyTabbar extends StatefulWidget {
   const MyTabbar({Key? key}) : super(key: key);
@@ -45,7 +43,9 @@ class _MyTabbarState extends State<MyTabbar> {
         appBar: AppBar(
           title: Text('Custom TabBar Example'
               ''),
-          backgroundColor: Color(0xffF96167,),
+          backgroundColor: Color(
+            0xffF96167,
+          ),
           elevation: 10.0,
           toolbarHeight: 120,
           bottom: TabBar(
